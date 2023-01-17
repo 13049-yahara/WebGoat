@@ -70,8 +70,11 @@ jobs:
           path: ~/.m2
           key: ubuntu-latest-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ubuntu-latest-m2-
-    - name: Test with Maven
-      run: mvn --no-transfer-progress verify
+          
+    - name: build
+      run:
+        ./mvnw clean install
+        ./mvnw spring-boot:run
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
