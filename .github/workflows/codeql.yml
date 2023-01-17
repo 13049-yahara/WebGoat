@@ -72,9 +72,10 @@ jobs:
           restore-keys: ubuntu-latest-m2-
           
     - name: build
-      run:
-        ./mvnw clean install
-        ./mvnw spring-boot:run
+      run: | 
+        mvn clean install
+        mvn -pl webgoat-server spring-boot:run
+        
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
